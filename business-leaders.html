@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#174f18">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="RAJ INDUSTRIES - Manufacturer and Retailer of quality Poha and Puffed Rice (Murmura).">
+  <title>RAJ INDUSTRIES | Pure Taste. Trusted Quality.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+<style>
+/* Dedicated Business Leaders page */
+.business-page-hero {
+  padding: 95px 0 70px;
+  text-align: center;
+  background: linear-gradient(135deg, #f8faf5, #fff);
+}
+
+.business-page-hero .container {
+  max-width: 850px;
+}
+
+.business-page-hero h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+
+.business-page-hero h1 span {
+  color: var(--green, #174f18);
+}
+
+.business-page-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--muted, #667064);
+  font-size: 17px;
+}
+
+@media (max-width: 700px) {
+  .business-page-hero {
+    padding: 65px 0 45px;
+  }
+
+  .business-page-hero h1 {
+    font-size: 40px;
+  }
+
+  .business-page-hero p {
+    font-size: 15px;
+  }
+}
+</style>
+
+<style>
+/* Business Leaders page carousel */
+.leaders-carousel{position:relative;width:100%;max-width:1080px;margin:auto}
+.leaders-viewport{overflow:hidden;border-radius:28px;touch-action:pan-y}
+.leaders-track{display:flex;width:100%;transition:transform .55s cubic-bezier(.22,.8,.22,1);will-change:transform}
+.leaders-track .leader-card{flex:0 0 100%;width:100%;min-width:100%;margin:0!important;box-sizing:border-box}
+.leaders-carousel .leader-card{padding:clamp(28px,5vw,46px);min-height:520px}
+.leader-arrow{position:absolute;top:50%;transform:translateY(-50%) scale(.85);width:50px;height:50px;border:0;border-radius:50%;display:grid;place-items:center;background:rgba(23,79,24,.96);color:#fff;font-size:27px;cursor:pointer;z-index:10;opacity:0;visibility:hidden;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.2);transition:opacity .2s,visibility .2s,transform .2s,background .2s}
+.leader-arrow-left{left:-25px}.leader-arrow-right{right:-25px}
+.leaders-carousel:hover .leader-arrow{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) scale(1)}
+.leader-arrow:hover{background:#c18a2d;transform:translateY(-50%) scale(1.08)}
+.leader-arrow:disabled,.leader-arrow[disabled]{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.leader-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.leader-dot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#cfd6cb;cursor:pointer;transition:.25s}
+.leader-dot.active{width:25px;border-radius:10px;background:#c18a2d}
+@media(max-width:900px){.leaders-carousel{max-width:720px}.leaders-carousel .leader-card{min-height:0}.leader-arrow-left{left:12px}.leader-arrow-right{right:12px}}
+@media(max-width:700px){.leaders-viewport{border-radius:20px}.leaders-carousel .leader-card{padding:28px 22px}.leaders-carousel .leader-card h3{font-size:27px;padding-right:40px}.leaders-carousel .leader-meta{flex-direction:column;align-items:flex-start}.leaders-carousel .leader-card p{font-size:14px;line-height:1.7}.leader-arrow{width:44px;height:44px;font-size:23px}.leader-arrow-left{left:8px}.leader-arrow-right{right:8px}.leaders-carousel.touch-active .leader-arrow{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) scale(1)}}
+@media(max-width:380px){.leaders-carousel .leader-card{padding:24px 17px}.leader-arrow{width:40px;height:40px;font-size:20px}.leader-arrow-left{left:5px}.leader-arrow-right{right:5px}}
+.business-page-hero{padding:95px 0 70px;text-align:center;background:linear-gradient(135deg,#f8faf5,#fff)}
+.business-page-hero .container{max-width:850px}
+.business-page-hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(42px,6vw,68px);line-height:1.08;margin-bottom:18px}
+.business-page-hero h1 span{color:var(--green,#174f18)}
+.business-page-hero p{max-width:700px;margin:0 auto;color:var(--muted,#667064);font-size:17px}
+@media(max-width:700px){.business-page-hero{padding:65px 0 45px}.business-page-hero h1{font-size:40px}.business-page-hero p{font-size:15px}}
+</style>
+
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a href="index.html#home" class="brand">
+      <img src="assets/raj-industries-logo.png" alt="RAJ INDUSTRIES Logo">
+    </a>
+    <button class="menu-btn" aria-label="Open menu">☰</button>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="business-leaders.html" class="active">Business Leaders</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#why-us">Why Us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+</header>
+
+<main>
+  <section class="business-page-hero">
+    <div class="container">
+      <span class="eyebrow">RAJ INDUSTRIES</span>
+      <h1>Our <span>Business Leaders</span></h1>
+      <p>Meet the people behind RAJ INDUSTRIES — their experience, vision and contribution to the business.</p>
+    </div>
+  </section>
+
+  <!-- BUSINESS LEADERS SECTION -->
+  <section id="leaders" class="section leaders">
+    <div class="container">
+      <div class="section-heading center">
+        <span class="eyebrow">THE PEOPLE BEHIND RAJ INDUSTRIES</span>
+        <h2>Built with <span>Hard Work, Trust & Vision.</span></h2>
+        <p>RAJ INDUSTRIES is the result of years of dedication, teamwork and a strong commitment to building a trusted business.</p>
+      </div>
+
+      <div class="leaders-carousel" id="leadersCarousel">
+        <button class="leader-arrow leader-arrow-left" type="button" aria-label="Previous business leader">&#10094;</button>
+        <div class="leaders-viewport">
+          <div class="leaders-track">
+
+            <article class="leader-card">
+              <div class="leader-number">01</div>
+              <div class="leader-content">
+                <div class="leader-card-top">
+                  <span class="leader-status">RAJ INDUSTRIES</span>
+                  <span class="leader-profile-tag">PROFILE</span>
+                </div>
+                <div class="leader-avatar">LP</div>
+                <span class="leader-role">FOUNDER & BUSINESS LEADER</span>
+                <h3>LALBABU PRASAD</h3>
+                <div class="leader-meta">
+                  <span>💼 Experience: 25+ Years</span>
+                </div>
+                <p>Lalbabu Prasad is one of the key people behind the journey of RAJ INDUSTRIES. With more than 25 years of business experience, he has played an important role in building the foundation of the business through dedication, patience and continuous hard work.</p>
+                <p>His journey has been built from the ground up. From understanding customer needs and managing suppliers to maintaining product quality and developing strong business relationships, he has worked through many challenges to create a reliable business.</p>
+                <p>His primary responsibilities include business management, production planning, supplier coordination, customer relationships and overall business operations. His experience and practical knowledge continue to guide the growth of RAJ INDUSTRIES.</p>
+                <div class="leader-highlight"><strong>25+ Years</strong><span>Business Experience</span><em>Trusted Leadership</em></div>
+              </div>
+            </article>
+
+            <article class="leader-card">
+              <div class="leader-number">02</div>
+              <div class="leader-content">
+                <div class="leader-card-top">
+                  <span class="leader-status">RAJ INDUSTRIES</span>
+                  <span class="leader-profile-tag">PROFILE</span>
+                </div>
+                <div class="leader-avatar">AR</div>
+                <span class="leader-role">BUSINESS & OPERATIONS</span>
+                <h3>AVINASH RAJ</h3>
+                <div class="leader-meta">
+                  <span>💼 Experience: 3+ Years</span>
+                </div>
+                <p>Avinash Raj is an important part of the growing team at RAJ INDUSTRIES. With more than 3 years of business experience, he brings a combination of education, practical knowledge and a modern approach to business operations.</p>
+                <p>His journey has involved learning the business from the ground up, understanding the market, working with customers and contributing to the development of a dependable supply system. Every challenge has helped him gain valuable experience and strengthen his business skills.</p>
+                <p>He contributes to day-to-day operations, customer communication, sales coordination, product supply and business development. His focus is on improving service, maintaining relationships and helping RAJ INDUSTRIES grow in a sustainable way.</p>
+                <div class="leader-highlight"><strong>3+ Years</strong><span>Business Experience</span><em>Business Operations</em></div>
+              </div>
+            </article>
+
+            <article class="leader-card">
+              <div class="leader-number">03</div>
+              <div class="leader-content">
+                <div class="leader-card-top">
+                  <span class="leader-status">RAJ INDUSTRIES</span>
+                  <span class="leader-profile-tag">PROFILE</span>
+                </div>
+                <div class="leader-avatar">RK</div>
+                <span class="leader-role">DIGITAL & BUSINESS MANAGEMENT</span>
+                <h3>RAJU KUMAR</h3>
+                <div class="leader-meta">
+                  <span>💼 Experience: 1+ Year</span>
+                </div>
+                <p>Raju Kumar is a young and technology-focused member of RAJ INDUSTRIES. With an MCA background and more than 1 year of business experience, he brings a combination of technology, modern thinking and business management to the organization.</p>
+                <p>His journey represents the next generation of the business. Along with learning the practical side of the food business, he has worked to understand customers, market requirements and the importance of building a strong digital presence.</p>
+                <p>His responsibilities include digital business development, website and online presence management, customer communication, marketing support and helping introduce modern technology into business operations.</p>
+                <div class="leader-highlight"><strong>1+ Year</strong><span>Business Experience</span><em>Digital Growth</em></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+        <button class="leader-arrow leader-arrow-right" type="button" aria-label="Next business leader">&#10095;</button>
+        <div class="leader-dots" aria-label="Business leader navigation"></div>
+      </div>
+    </div>
+  </section>
+
+
+</main></main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="assets/raj-industries-logo.png" alt="RAJ INDUSTRIES" class="footer-logo">
+    <p>© <span id="year"></span> RAJ INDUSTRIES. Manufacturer & Retailer of Poha & Puffed Rice.</p>
+    <p class="footer-tagline">TRUST OF INDIA</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.getElementById("leadersCarousel");
+  if (!carousel) return;
+
+  const track = carousel.querySelector(".leaders-track");
+  const cards = Array.from(carousel.querySelectorAll(".leader-card"));
+  const prev = carousel.querySelector(".leader-arrow-left");
+  const next = carousel.querySelector(".leader-arrow-right");
+  const dotsBox = carousel.querySelector(".leader-dots");
+  let index = 0, startX = 0, startY = 0, moved = false, hideTimer;
+
+  cards.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "leader-dot";
+    dot.setAttribute("aria-label", `Show business leader ${i + 1}`);
+    dot.addEventListener("click", () => show(i));
+    dotsBox.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsBox.children);
+
+  function show(i) {
+    index = Math.max(0, Math.min(i, cards.length - 1));
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d,n) => d.classList.toggle("active", n === index));
+    if (prev) prev.disabled = index === 0;
+    if (next) next.disabled = index === cards.length - 1;
+  }
+
+  prev?.addEventListener("click", () => show(index - 1));
+  next?.addEventListener("click", () => show(index + 1));
+
+  carousel.addEventListener("touchstart", e => {
+    const t = e.changedTouches[0];
+    startX=t.clientX; startY=t.clientY; moved=false;
+    carousel.classList.add("touch-active");
+    clearTimeout(hideTimer);
+  }, {passive:true});
+
+  carousel.addEventListener("touchmove", e => {
+    const t=e.changedTouches[0], dx=t.clientX-startX, dy=t.clientY-startY;
+    if(Math.abs(dx)>15 && Math.abs(dx)>Math.abs(dy)) moved=true;
+  }, {passive:true});
+
+  carousel.addEventListener("touchend", e => {
+    const dx=e.changedTouches[0].clientX-startX;
+    if(moved && Math.abs(dx)>50) show(index+(dx<0?1:-1));
+    hideTimer=setTimeout(()=>carousel.classList.remove("touch-active"),1200);
+  }, {passive:true});
+
+  carousel.addEventListener("mouseleave", () => {
+    clearTimeout(hideTimer);
+    carousel.classList.remove("touch-active");
+  });
+
+  carousel.addEventListener("keydown", e => {
+    if(e.key==="ArrowLeft"){e.preventDefault();show(index-1)}
+    if(e.key==="ArrowRight"){e.preventDefault();show(index+1)}
+  });
+
+  show(0);
+});
+</script>
+
+</body>
+</html>
