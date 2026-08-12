@@ -445,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", event => {
     if (event.key === "Escape" && navLinks) {
       navLinks.classList.remove("active");
+      if (header) header.classList.remove("open");
 
       if (menuBtn) {
         menuBtn.innerHTML = "☰";
