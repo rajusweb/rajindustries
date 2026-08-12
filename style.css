@@ -644,3 +644,624 @@ body {
     transform: none;
   }
 }
+
+
+/* =========================================================
+   WhatsApp Number Selection Popup
+   ========================================================= */
+
+body.whatsapp-modal-open { overflow: hidden; }
+
+.floating-whatsapp {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.whatsapp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.whatsapp-modal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.whatsapp-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,20,12,.62);
+  backdrop-filter: blur(5px);
+}
+
+.whatsapp-modal-card {
+  position: relative;
+  z-index: 2;
+  width: min(440px,100%);
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.25);
+  transform: translateY(20px) scale(.96);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+.whatsapp-modal.show .whatsapp-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.whatsapp-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #f3f5f1;
+  color: #20251f;
+  font-size: 25px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.whatsapp-modal-close:hover {
+  background: #e8eee5;
+  transform: rotate(90deg);
+}
+
+.whatsapp-modal-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border-radius: 18px;
+  background: #eaf8ee;
+  font-size: 31px;
+}
+
+.whatsapp-modal-card h3 {
+  margin: 0 35px 7px 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  color: #20251f;
+}
+
+.whatsapp-modal-card > p {
+  margin: 0 0 22px;
+  color: #667064;
+  font-size: 14px;
+}
+
+.whatsapp-number-option {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px;
+  margin-top: 12px;
+  border: 1px solid #e1e7df;
+  border-radius: 15px;
+  background: #fff;
+  color: #20251f;
+  box-shadow: 0 7px 20px rgba(0,0,0,.04);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.whatsapp-number-option:hover {
+  transform: translateY(-2px);
+  border-color: #25d366;
+  box-shadow: 0 12px 28px rgba(37,211,102,.15);
+}
+
+.whatsapp-option-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf8ee;
+  font-size: 20px;
+}
+
+.whatsapp-number-option > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.whatsapp-number-option strong { font-size: 16px; }
+.whatsapp-number-option small { color: #667064; font-size: 11px; }
+.whatsapp-arrow {
+  font-size: 22px;
+  color: #25a95a;
+  transition: transform .2s ease;
+}
+
+.whatsapp-number-option:hover .whatsapp-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width:600px) {
+  .whatsapp-modal { padding: 14px; }
+  .whatsapp-modal-card {
+    padding: 26px 20px 22px;
+    border-radius: 20px;
+  }
+  .whatsapp-modal-card h3 { font-size: 26px; }
+}
+
+
+/* =========================================================
+   FINAL RESPONSIVE / MOBILE OPTIMIZATION
+   Android Chrome • iPhone Safari • Tablets • Desktop
+   ========================================================= */
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 16px; /* prevents iPhone Safari auto-zoom on form fields */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+.header {
+  padding-top: env(safe-area-inset-top);
+}
+
+.nav {
+  min-height: 82px;
+}
+
+.hero-grid,
+.two-col,
+.product-grid,
+.why-grid,
+.leaders-grid {
+  min-width: 0;
+}
+
+.hero-copy,
+.hero-product,
+.section-image,
+.contact-grid,
+.contact-form,
+.leader-content,
+.product-card,
+.why-card {
+  min-width: 0;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+/* Better touch targets */
+.nav-links a,
+.nav-cta,
+.btn,
+.product-link,
+.whatsapp-number-option,
+.whatsapp-modal-close,
+.menu-btn {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: min(94%, 720px);
+  }
+
+  .nav {
+    height: 72px;
+    gap: 14px;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    padding: 65px 0 55px;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy .hero-actions {
+    justify-content: center;
+  }
+
+  .trust-row {
+    justify-content: center;
+  }
+
+  .hero-product {
+    min-height: 400px;
+    margin-top: 10px;
+  }
+
+  .hero-poha {
+    width: min(390px, 82vw);
+    height: min(390px, 82vw);
+  }
+
+  .product-orbit {
+    width: min(410px, 86vw);
+    height: min(410px, 86vw);
+  }
+
+  .floating-card {
+    right: 4%;
+  }
+
+  .two-col {
+    gap: 42px;
+  }
+
+  .contact-grid {
+    align-items: start;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .section {
+    padding: 62px 0;
+  }
+
+  .hero-grid {
+    padding: 45px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 10vw, 46px);
+    line-height: 1.1;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .trust-row {
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  .trust-row div {
+    flex: 1;
+    text-align: center;
+  }
+
+  .trust-row strong {
+    font-size: 17px;
+  }
+
+  .hero-product {
+    min-height: 335px;
+  }
+
+  .hero-poha {
+    width: min(300px, 78vw);
+    height: min(300px, 78vw);
+    padding: 10px;
+  }
+
+  .product-orbit {
+    width: min(315px, 82vw);
+    height: min(315px, 82vw);
+  }
+
+  .floating-card {
+    right: 0;
+    bottom: 0;
+    max-width: 190px;
+    padding: 11px 13px;
+  }
+
+  .floating-card strong {
+    font-size: 15px;
+  }
+
+  .section h2 {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+
+  .section-image img {
+    height: 330px;
+  }
+
+  .product-grid,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-img {
+    height: 260px;
+  }
+
+  .leader-card {
+    display: block;
+    padding: 28px 20px;
+  }
+
+  .leader-number {
+    font-size: 48px;
+  }
+
+  .leader-card h3 {
+    font-size: 27px;
+  }
+
+  .leader-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-inner {
+    align-items: stretch;
+  }
+
+  .cta-strip h2 {
+    font-size: 29px;
+  }
+
+  .cta-inner .btn {
+    width: 100%;
+  }
+
+  .contact-info iframe {
+    width: 100%;
+    height: 260px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .floating-whatsapp {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    width: 56px;
+    height: 56px;
+  }
+
+  .back-to-top {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: calc(82px + env(safe-area-inset-bottom));
+  }
+
+  .whatsapp-modal {
+    padding:
+      max(14px, env(safe-area-inset-top))
+      max(14px, env(safe-area-inset-right))
+      max(14px, env(safe-area-inset-bottom))
+      max(14px, env(safe-area-inset-left));
+  }
+
+  .whatsapp-modal-card {
+    width: 100%;
+    max-height: calc(100dvh - 28px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 24px 18px 20px;
+  }
+
+  .whatsapp-number-option {
+    min-height: 64px;
+    padding: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: calc(100% - 22px);
+  }
+
+  .brand img {
+    width: 74px;
+    height: 58px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .trust-row {
+    gap: 6px;
+  }
+
+  .trust-row small {
+    font-size: 10px;
+  }
+
+  .hero-product {
+    min-height: 300px;
+  }
+
+  .hero-poha {
+    width: 250px;
+    height: 250px;
+  }
+
+  .product-orbit {
+    width: 270px;
+    height: 270px;
+  }
+
+  .floating-card {
+    max-width: 165px;
+  }
+
+  .floating-card small {
+    font-size: 10px;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-grid {
+    padding: 35px 0;
+  }
+
+  .hero-product {
+    min-height: 280px;
+  }
+
+  .hero-poha {
+    width: 240px;
+    height: 240px;
+  }
+
+  .product-orbit {
+    width: 260px;
+    height: 260px;
+  }
+
+  .whatsapp-modal-card {
+    max-height: 90dvh;
+    overflow-y: auto;
+  }
+}
+
+/* iPhone notch / home indicator support */
+@supports (padding: max(0px)) {
+  .footer {
+    padding-bottom: max(30px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Disable hover-only effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .product-card:hover,
+  .leader-card:hover,
+  .btn:hover,
+  .nav-cta:hover,
+  .floating-whatsapp:hover {
+    transform: none;
+  }
+
+  .product-card:hover .product-img img {
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   ALWAYS-VISIBLE STICKY HEADER
+   Logo + Home + About + Products + Why Us + Contact
+   ========================================================= */
+
+.header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(255,255,255,.96);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 22px rgba(0,0,0,.08);
+}
+
+body {
+  padding-top: 82px;
+}
+
+/* Keep the header visible while scrolling */
+.header.scrolled {
+  background: rgba(255,255,255,.98);
+  box-shadow: 0 8px 30px rgba(0,0,0,.10);
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-top: 72px;
+  }
+
+  .header {
+    position: fixed !important;
+  }
+
+  .nav {
+    position: relative;
+  }
+
+  /* Mobile menu opens below the fixed header */
+  .nav-links {
+    top: calc(100% + 8px);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 72px;
+  }
+}
