@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuBtn && navLinks) {
     menuBtn.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("active");
+      if (header) header.classList.toggle("open", isOpen);
 
       menuBtn.setAttribute("aria-expanded", isOpen);
       menuBtn.innerHTML = isOpen ? "✕" : "☰";
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("active");
         menuBtn.classList.remove("active");
+        if (header) header.classList.remove("open");
         menuBtn.innerHTML = "☰";
         menuBtn.setAttribute("aria-expanded", "false");
       });
@@ -325,19 +327,73 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ---------------------------------------------------------
-     12. Add Floating WhatsApp Button
+     12. Floating WhatsApp Button + Number Selection Popup
   --------------------------------------------------------- */
-  const whatsappButton = document.createElement("a");
-
-  whatsappButton.href =
-    "https://wa.me/919122619049?text=Hello%20RAJ%20INDUSTRIES,%20I%20want%20to%20know%20more%20about%20Poha%20and%20Murmura.";
-  whatsappButton.target = "_blank";
-  whatsappButton.rel = "noopener noreferrer";
+  const whatsappButton = document.createElement("button");
+  whatsappButton.type = "button";
   whatsappButton.className = "floating-whatsapp";
-  whatsappButton.setAttribute("aria-label", "Chat with RAJ INDUSTRIES on WhatsApp");
+  whatsappButton.setAttribute("aria-label", "Choose a WhatsApp number");
   whatsappButton.innerHTML = "💬";
 
+  const whatsappModal = document.createElement("div");
+  whatsappModal.className = "whatsapp-modal";
+  whatsappModal.setAttribute("aria-hidden", "true");
+  whatsappModal.innerHTML = `
+    <div class="whatsapp-modal-overlay"></div>
+    <div class="whatsapp-modal-card" role="dialog" aria-modal="true" aria-labelledby="whatsappModalTitle">
+      <button type="button" class="whatsapp-modal-close" aria-label="Close">×</button>
+      <div class="whatsapp-modal-icon">💬</div>
+      <h3 id="whatsappModalTitle">Chat with RAJ INDUSTRIES</h3>
+      <p>Select a WhatsApp number to start your conversation.</p>
+
+      <a class="whatsapp-number-option" href="https://wa.me/919122619049?text=Hello%20RAJ%20INDUSTRIES,%20I%20want%20to%20know%20more%20about%20Poha%20and%20Murmura." target="_blank" rel="noopener noreferrer">
+        <span class="whatsapp-option-icon">📱</span>
+        <span>
+          <strong>+91 9122619049</strong>
+          <small>Send WhatsApp Message</small>
+        </span>
+        <span class="whatsapp-arrow">→</span>
+      </a>
+
+      <a class="whatsapp-number-option" href="https://wa.me/919431428095?text=Hello%20RAJ%20INDUSTRIES,%20I%20want%20to%20know%20more%20about%20Poha%20and%20Murmura." target="_blank" rel="noopener noreferrer">
+        <span class="whatsapp-option-icon">📱</span>
+        <span>
+          <strong>+91 9431428095</strong>
+          <small>Send WhatsApp Message</small>
+        </span>
+        <span class="whatsapp-arrow">→</span>
+      </a>
+    </div>
+  `;
+
   document.body.appendChild(whatsappButton);
+  document.body.appendChild(whatsappModal);
+
+  const closeWhatsAppModal = () => {
+    whatsappModal.classList.remove("show");
+    whatsappModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("whatsapp-modal-open");
+  };
+
+  const openWhatsAppModal = () => {
+    whatsappModal.classList.add("show");
+    whatsappModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("whatsapp-modal-open");
+  };
+
+  whatsappButton.addEventListener("click", openWhatsAppModal);
+  whatsappModal.querySelector(".whatsapp-modal-overlay").addEventListener("click", closeWhatsAppModal);
+  whatsappModal.querySelector(".whatsapp-modal-close").addEventListener("click", closeWhatsAppModal);
+
+  whatsappModal.querySelectorAll(".whatsapp-number-option").forEach(option => {
+    option.addEventListener("click", () => setTimeout(closeWhatsAppModal, 150));
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && whatsappModal.classList.contains("show")) {
+      closeWhatsAppModal();
+    }
+  });
 
   /* ---------------------------------------------------------
      13. Back To Top Button
